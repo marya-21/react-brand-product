@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Row, Col, Card, Typography } from "antd";
+import { Card, Typography } from "antd";
 import { Link } from "@tanstack/react-router";
 import CardPaginate from "../components/global/CardPaginate";
-import { useQuery } from "@tanstack/react-query";
-import { brandsQueryOptions } from "../api/brands";
+import useFetchQuery from "../api/useFetchQuery";
 
 const { Title } = Typography;
 
@@ -13,6 +12,7 @@ export const Route = createFileRoute("/")({
 
 const MyCustomCard = (brand) => (
   <Card
+    className="card"
     hoverable
     cover={
       <img
@@ -22,7 +22,12 @@ const MyCustomCard = (brand) => (
       />
     }
   >
-    <Card.Meta title={brand.name} description={brand.description} />
+    <Card.Meta
+      title={brand.name}
+      description={brand.description}
+      className="card-description"
+    />
+
     <Link
       to="/brands/$brandId/products"
       params={{ brandId: brand.id }}
@@ -34,15 +39,18 @@ const MyCustomCard = (brand) => (
 );
 
 function Index() {
-  const { data: brands, isLoading, error } = useQuery(brandsQueryOptions);
+  const { data, isLoading, isError } = useFetchQuery(
+    "brands",
+    "https://684045e55b39a8039a578025.mockapi.io/brands"
+  );
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (isError) return <div>Fetch error!</div>;
 
   return (
     <div>
       <Title level={2}>Our Brands</Title>
-      <CardPaginate dataCard={brands} customCard={MyCustomCard} />
+      <CardPaginate dataCard={data} customCard={MyCustomCard} />
     </div>
   );
 }
