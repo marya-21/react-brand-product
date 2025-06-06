@@ -3,14 +3,11 @@ import { Card, Row, Col, Pagination } from "antd";
 import { Link } from "@tanstack/react-router";
 
 function CardPaginate({ pageSize = 8, dataCard = [], customCard }) {
-  // State untuk halaman yang aktif
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Set data per halaman
   const startIndex = (currentPage - 1) * pageSize;
   const currentData = dataCard.slice(startIndex, startIndex + pageSize);
 
-  // Fungsi untuk menangani perubahan halaman
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
