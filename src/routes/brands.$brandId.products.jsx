@@ -46,7 +46,6 @@ const MyCustomCard = (product) => (
 function BrandProducts() {
   const { brandId } = Route.useParams();
 
-  // Mock data - replace with actual API call
   const brand = {
     id: brandId,
     name: "Nike",

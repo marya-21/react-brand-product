@@ -26,7 +26,7 @@ export const Route = createRootRoute({
         <Outlet />
       </Content>
       <Footer style={{ textAlign: "center" }}>
-        Brand Products ©{new Date().getFullYear()} Created by M Arya Syaifullah
+        ©{new Date().getFullYear()} Created by M Arya Syaifullah
       </Footer>
     </Layout>
   ),
