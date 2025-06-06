@@ -25,6 +25,6 @@ Untuk halaman detail produk, data diambil langsung dari dummy data karena resour
 
 # Jawab Tugas Essay
 
-1. State management yaitu cara atau teknik untuk mengatur, menyimpan, dan memperbarui data yang nanti akan di gunakan untuk interaksi aplikasi ke pengguna.
+1. State management yaitu cara atau teknik untuk mengatur, menyimpan, dan memperbarui data yang nanti akan di gunakan untuk interaksi aplikasi ke pengguna. contohnya adalah useContext ataupun redux.
 2. Setelah mempelajari tanstack, librabry ini tidak hanya mengandle routing dan navigasi tetapi lebih dari itu, lib ini bisa handle  data dan state tanpa harus di inisiasi lagi oleh developer.
 
